@@ -5,9 +5,16 @@ using UnityEngine;
 public class SlimeAttackRange : MonoBehaviour
 {
     [SerializeField]
+    GameObject slimeObject;
+    [SerializeField]
     Animator slimeAnimator;
 
     public bool isAttacking = false;
+
+    private void Update() 
+    {
+        gameObject.transform.position = new Vector3(slimeObject.transform.position.x, slimeObject.transform.position.y, slimeObject.transform.position.z);
+    }
 
     void OnTriggerStay(Collider other)
     {

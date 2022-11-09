@@ -12,12 +12,6 @@ public class SlimeMovement : MonoBehaviour
     public float slimeSpeed;
     public float damage;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     public void SlimeMoving()
     {
