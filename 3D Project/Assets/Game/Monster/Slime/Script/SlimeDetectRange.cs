@@ -22,5 +22,6 @@ public class SlimeDetectRange : MonoBehaviour
         {
             SlimeMovement.SlimeMoving();
         }
+        SlimeMovement.SlimeRotating();
     }
 }

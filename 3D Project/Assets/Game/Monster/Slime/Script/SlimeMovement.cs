@@ -16,11 +16,15 @@ public class SlimeMovement : MonoBehaviour
     public void SlimeMoving()
     {
         playerPos = player.transform.position;
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, playerPos, slimeSpeed * Time.deltaTime);
+    }
+
+    public void SlimeRotating()
+    {
+        playerPos = player.transform.position;
         var targetDirection = playerPos - gameObject.transform.position;
 
         Vector3 newDirection = Vector3.RotateTowards(gameObject.transform.forward, targetDirection, 45 * Time.deltaTime, 0f);
         gameObject.transform.rotation = Quaternion.LookRotation(newDirection);
-
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, playerPos, slimeSpeed * Time.deltaTime);
     }
 }
