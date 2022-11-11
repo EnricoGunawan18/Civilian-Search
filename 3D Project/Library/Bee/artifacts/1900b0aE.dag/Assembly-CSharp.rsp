@@ -367,12 +367,14 @@
 "Assets/AssetStore Asset/unity-chan!/Unity-chan! Model/Scripts/ThirdPersonCamera.cs"
 "Assets/AssetStore Asset/unity-chan!/Unity-chan! Model/Scripts/UnityChanControlScriptWithRgidBody.cs"
 "Assets/AssetStore Asset/unity-chan!/Unity-chan! Model/SplashScreen/Scripts/SplashScreen.cs"
-"Assets/Game/Main/Script/Character.cs"
+"Assets/Game/Main/Script/SlimeSpawner.cs"
+"Assets/Game/Main/Script/TreasureSpawner.cs"
 "Assets/Game/Monster/Slime/Script/SlimeAttackRange.cs"
 "Assets/Game/Monster/Slime/Script/SlimeDamage.cs"
 "Assets/Game/Monster/Slime/Script/SlimeDetectRange.cs"
 "Assets/Game/Monster/Slime/Script/SlimeMovement.cs"
 "Assets/Game/Title/Script/StartButton.cs"
+"Assets/Game/Treasures/Script/TreasureScript.cs"
 -langversion:9.0
 
 /deterministic

@@ -9,6 +9,10 @@ public class SlimeDamage : MonoBehaviour
     [SerializeField]
     Animator playerAnim;
 
+    private void Start() {
+        player = GameObject.FindWithTag("Player");
+        playerAnim = player.GetComponent<Animator>();
+    }
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {

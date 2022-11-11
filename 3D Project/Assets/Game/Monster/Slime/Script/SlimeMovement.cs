@@ -12,6 +12,10 @@ public class SlimeMovement : MonoBehaviour
     public float slimeSpeed;
     public float damage;
 
+    private void Start() {
+        player = GameObject.FindWithTag("Player");
+    }
+
     // Update is called once per frame
     public void SlimeMoving()
     {
