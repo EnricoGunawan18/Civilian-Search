@@ -5,6 +5,8 @@ using UnityEngine;
 public class SlimeSpawner : MonoBehaviour
 {
     [SerializeField]
+    GameObject playerGameObject;
+    [SerializeField]
     GameObject slime;
 
     [SerializeField]
