@@ -10,9 +10,9 @@ public class SlimeMovement : MonoBehaviour
     Vector3 playerPos;
 
     public float slimeSpeed;
-    public float damage;
 
-    private void Start() {
+    private void Start() 
+    {
         player = GameObject.FindWithTag("Player");
     }
 

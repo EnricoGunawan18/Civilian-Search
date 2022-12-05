@@ -10,10 +10,13 @@ public class TreasureSpawner : MonoBehaviour
     void Awake()
     {
         int posX = Random.Range(100, 900);
-        int posY = 3;
         int posZ = Random.Range(100, 900);
-        Vector3 position = new Vector3(posX, posY, posZ);
-        Instantiate(treasure, position, Quaternion.identity);
+        Vector3 position = new Vector3(posX, 100, posZ);
+
+        if(Physics.Raycast(position,Vector3.down, out RaycastHit hit))
+        {
+            Instantiate(treasure, hit.point, Quaternion.identity);
+        }
     }
 
     // Update is called once per frame

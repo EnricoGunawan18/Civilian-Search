@@ -5,6 +5,7 @@
 //
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 namespace UnityChan
 {
@@ -15,6 +16,8 @@ namespace UnityChan
 
 	public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 	{
+		[SerializeField]
+		Slider healthBar;
 
 		public float animSpeed = 1.5f;				// アニメーション再生速度設定
 		public float lookSmoother = 3.0f;			// a smoothing setting for camera motion

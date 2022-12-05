@@ -27,28 +27,21 @@ public class SlimeAttackRange : MonoBehaviour
         if(other.tag == "Player")
         {
             isAttacking = true;
-            if(!coroutineRunning)
-            {
-                StartCoroutine(SlimeAttacking());
-                coroutineRunning = true;
-            }
+            InvokeRepeating("SlimeAttacking", 0f, 3f);
         }
     }
 
     private void OnTriggerExit(Collider other) 
     {
-        StopCoroutine(SlimeAttacking());
         isAttacking = false;
         slimeAnimator.SetBool("isAttacking", false);
+        CancelInvoke("SlimeAttacking");
     }
 
-    IEnumerator SlimeAttacking()
+    void SlimeAttacking()
     {
         slimeAnimator.SetBool("isAttacking", true);
 		rb.AddForce (Vector3.up * leap, ForceMode.VelocityChange);
 		rb.AddForce (Vector3.forward * leap, ForceMode.VelocityChange);
-        Debug.Log("a");
-        yield return new WaitForSeconds(2);
-        coroutineRunning = false;
     }
 }

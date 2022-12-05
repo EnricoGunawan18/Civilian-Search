@@ -369,6 +369,7 @@
 "Assets/AssetStore Asset/unity-chan!/Unity-chan! Model/SplashScreen/Scripts/SplashScreen.cs"
 "Assets/Game/Main/Script/SlimeSpawner.cs"
 "Assets/Game/Main/Script/TreasureSpawner.cs"
+"Assets/Game/Monster/Slime/Script/DestroySlime.cs"
 "Assets/Game/Monster/Slime/Script/SlimeAttackRange.cs"
 "Assets/Game/Monster/Slime/Script/SlimeDamage.cs"
 "Assets/Game/Monster/Slime/Script/SlimeDetectRange.cs"

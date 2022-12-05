@@ -5,9 +5,9 @@ using UnityEngine;
 public class SlimeSpawner : MonoBehaviour
 {
     [SerializeField]
-    GameObject playerGameObject;
-    [SerializeField]
     GameObject slime;
+    [SerializeField]
+    GameObject player;
 
     [SerializeField]
     int slimeNumber;
@@ -16,19 +16,28 @@ public class SlimeSpawner : MonoBehaviour
     {
         for(int i = 0; i < slimeNumber; i++)
         {
-            int posX = Random.Range(100, 900);
-            int posY = 3;
-            int posZ = Random.Range(100, 900);
-
-            Vector3 position = new Vector3(posX, posY, posZ);
-
-            Instantiate(slime, position, Quaternion.identity);
+            float rand = Random.Range(0,50);         
+            float posX = (player.transform.position.x + (rand * (Random.Range(0,2) * 2 - 1)));
+            float posZ = (player.transform.position.z + ((50 - rand) * (Random.Range(0,2) * 2 - 1)));
+            Vector3 position = new Vector3(posX, 100, posZ);
+            
+            if(Physics.Raycast(position,Vector3.down, out RaycastHit hit))
+            {
+                Instantiate(slime, hit.point, Quaternion.identity);
+            }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Spawn()
     {
+        float rand = Random.Range(0,50);         
+        float posX = (player.transform.position.x + (rand * (Random.Range(0,2) * 2 - 1)));
+        float posZ = (player.transform.position.z + ((50 - rand) * (Random.Range(0,2) * 2 - 1)));
+        Vector3 position = new Vector3(posX, 100, posZ);
         
+        if(Physics.Raycast(position,Vector3.down, out RaycastHit hit))
+        {
+            Instantiate(slime, hit.point, Quaternion.identity);
+        }
     }
 }

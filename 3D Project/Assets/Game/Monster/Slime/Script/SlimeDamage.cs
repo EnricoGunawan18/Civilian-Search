@@ -11,22 +11,24 @@ public class SlimeDamage : MonoBehaviour
     Animator playerAnim;
 
     [SerializeField]
-    Canvas canvas;
-    [SerializeField]
     Slider healthSlider;
 
-    private void Start() {
+    public float damage;
+
+    private void Start() 
+    {
         player = GameObject.FindWithTag("Player");
         playerAnim = player.GetComponent<Animator>();
-        canvas = transform.root.GetComponentInParent<Canvas>();
-        //healthSlider = 
+        healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
     }
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        bool isDamaged = playerAnim.GetBool("Damaged");
+        if(other.tag == "Player" && isDamaged == false)
         {
             playerAnim.SetBool("Damaged", true);
+            healthSlider.value -= damage;
         }
     }
 }
