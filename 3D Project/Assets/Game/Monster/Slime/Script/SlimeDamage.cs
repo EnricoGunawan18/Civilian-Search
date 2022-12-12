@@ -14,6 +14,8 @@ public class SlimeDamage : MonoBehaviour
     Slider healthSlider;
 
     public float damage;
+    bool dead = false;
+    float time = 0;
 
     private void Start() 
     {
@@ -25,10 +27,31 @@ public class SlimeDamage : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         bool isDamaged = playerAnim.GetBool("Damaged");
-        if(other.tag == "Player" && isDamaged == false)
+        bool isDead = playerAnim.GetBool("IsDead");
+        if(other.tag == "Player" && isDamaged == false && isDead == false)
         {
-            playerAnim.SetBool("Damaged", true);
             healthSlider.value -= damage;
+            if(healthSlider.value <=0)
+            {
+                Debug.Log("a");
+                playerAnim.Play("DAMAGED01");
+                dead = true;
+            }
+            else
+            {
+                playerAnim.SetBool("Damaged", true);
+            }
+        }
+    }
+
+    private void Update() 
+    {
+        if(dead == true)
+        {
+            if(playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.55f)
+            {
+                playerAnim.speed = 0;
+            }
         }
     }
 }
