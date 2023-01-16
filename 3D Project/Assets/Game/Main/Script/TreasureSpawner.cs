@@ -6,6 +6,8 @@ public class TreasureSpawner : MonoBehaviour
 {
     [SerializeField]
     GameObject treasure;
+
+    public GameObject instantiatedObject;
     // Start is called before the first frame update
     void Awake()
     {
@@ -15,7 +17,7 @@ public class TreasureSpawner : MonoBehaviour
 
         if(Physics.Raycast(position,Vector3.down, out RaycastHit hit))
         {
-            Instantiate(treasure, hit.point, Quaternion.identity);
+            instantiatedObject = Instantiate(treasure, hit.point, Quaternion.identity);
         }
     }
 

@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  slime: {fileID: 5088834956519218197}
+  slimeSpawner: {fileID: 0}
 --- !u!1 &5088834956533359377
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  slimeSpeed: 1
+  slimeSpeed: 3
 --- !u!1 &5088834956760087494
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  unityController: {fileID: 0}
   playerAnim: {fileID: 0}
   healthSlider: {fileID: 0}
-  damage: 5
+  damage: 20

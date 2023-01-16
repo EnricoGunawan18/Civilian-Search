@@ -18,6 +18,8 @@ namespace UnityChan
 	{
 		[SerializeField]
 		Slider healthBar;
+		[SerializeField]
+		GameObject gameOver;
 
 		public float animSpeed = 1.5f;				// アニメーション再生速度設定
 		public float lookSmoother = 3.0f;			// a smoothing setting for camera motion
@@ -54,6 +56,8 @@ namespace UnityChan
 		static int restState = Animator.StringToHash ("Base Layer.Rest");
 		static int damageState = Animator.StringToHash("Base Layer.DAMAGED00");
 
+		public bool dead = false;
+
 		// 初期化
 		void Start ()
 		{
@@ -67,6 +71,15 @@ namespace UnityChan
 			// CapsuleColliderコンポーネントのHeight、Centerの初期値を保存する
 			orgColHight = col.height;
 			orgVectColCenter = col.center;
+		}
+
+		private void Update() 
+		{
+			if(dead)
+			{
+				Time.timeScale = 0;
+				gameOver.SetActive(true);
+			}
 		}
 	
 	

@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityChan;
 
 public class SlimeDamage : MonoBehaviour
 {
     [SerializeField]
     GameObject player;
+    [SerializeField]
+    UnityChanControlScriptWithRgidBody unityController;
     [SerializeField]
     Animator playerAnim;
 
@@ -20,6 +23,7 @@ public class SlimeDamage : MonoBehaviour
     private void Start() 
     {
         player = GameObject.FindWithTag("Player");
+        unityController = player.GetComponent<UnityChanControlScriptWithRgidBody>();
         playerAnim = player.GetComponent<Animator>();
         healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
     }
@@ -51,6 +55,7 @@ public class SlimeDamage : MonoBehaviour
             if(playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.55f)
             {
                 playerAnim.speed = 0;
+                unityController.dead = true;
             }
         }
     }

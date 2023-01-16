@@ -12,12 +12,13 @@ public class StartButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startButton.onClick.AddListener(startButtonPress);
+        startButton.onClick.AddListener(StartButtonPress);
     }
 
     // Update is called once per frame
-    void startButtonPress()
+    void StartButtonPress()
     {
+        PlayerPrefs.SetInt("NewScore", 0);
         SceneManager.LoadScene("Main");
     }
 }
